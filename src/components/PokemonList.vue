@@ -1,6 +1,6 @@
 <template lang="html">
   <ul>
-    <list-item v-for="pokemon in pokemons" :pokemon="pokemon"></list-item>
+    <list-item v-for="pokemon in pokemons.results" :pokemon="pokemon"></list-item>
   </ul>
 </template>
 

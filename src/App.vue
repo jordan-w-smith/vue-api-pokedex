@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>Pokemon List</h1>
-    <pokemon-list></pokemon-list>
+    <pokemon-list :pokemons="pokemons"></pokemon-list>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template lang="html">
-  <li>{{pokemon}}</li>
+  <li>{{pokemon.name}}</li>
 </template>
 
 <script>
