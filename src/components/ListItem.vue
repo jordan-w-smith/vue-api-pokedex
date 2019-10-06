@@ -1,10 +1,16 @@
 <template lang="html">
-  <li>{{pokemon.name}}</li>
+  <li v-on:click="handleClick">{{pokemon.name}}</li>
 </template>
 
 <script>
+import {eventBus} from '../main.js'
 export default {
-  props: ['pokemon']
+  props: ['pokemon'],
+  methods: {
+    handleClick() {
+      eventBus.$emit('pokemon-selected', this.pokemon)
+    }
+  }
 }
 </script>
 

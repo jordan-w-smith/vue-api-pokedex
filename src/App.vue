@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import {eventBus} from './main.js'
 import HelloWorld from './components/HelloWorld.vue'
 import PokemonList from './components/PokemonList.vue'
 
@@ -14,7 +15,8 @@ export default {
   name: 'app',
   data() {
     return {
-      pokemons: []
+      pokemons: [],
+      selectedPokemon: null
     }
   },
   components: {
@@ -25,6 +27,11 @@ export default {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
     .then(res => res.json())
     .then(pokemons => this.pokemons = pokemons)
+  },
+  methods: {
+    // eventBus.$on('pokemon-selected', (pokemon) => {
+    //   this.selectedPokemon = pokemon
+    // })
   }
 }
 </script>
