@@ -2,6 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>Pokemon List</h1>
+    <pokemon-detail :pokemon="selectedPokemon"></pokemon-detail>
     <pokemon-list :pokemons="pokemons"></pokemon-list>
   </div>
 </template>
@@ -10,6 +11,7 @@
 import {eventBus} from './main.js'
 import HelloWorld from './components/HelloWorld.vue'
 import PokemonList from './components/PokemonList.vue'
+import PokemonDetail from './components/PokemonDetail.vue'
 
 export default {
   name: 'app',
@@ -21,17 +23,22 @@ export default {
   },
   components: {
     HelloWorld,
-    "pokemon-list": PokemonList
+    "pokemon-list": PokemonList,
+    "pokemon-detail": PokemonDetail
   },
   mounted() {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
     .then(res => res.json())
     .then(pokemons => this.pokemons = pokemons)
+
+    eventBus.$on('pokemon-selected', pokemon => this.getPokemonDetails(pokemon.name) )
   },
   methods: {
-    // eventBus.$on('pokemon-selected', (pokemon) => {
-    //   this.selectedPokemon = pokemon
-    // })
+    getPokemonDetails: function(pokemonName) {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+        .then(res => res.json())
+        .then(pokemon => this.selectedPokemon = pokemon)
+    }
   }
 }
 </script>
