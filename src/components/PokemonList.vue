@@ -1,7 +1,12 @@
 <template lang="html">
-  <ul>
-    <list-item v-for="pokemon in pokemons.results" :pokemon="pokemon"></list-item>
-  </ul>
+  <div>
+
+
+    <h1>Pokemon List</h1>
+    <ul>
+      <list-item v-for="pokemon in pokemons.results" :pokemon="pokemon"></list-item>
+    </ul>
+  </div>
 </template>
 
 <script>
