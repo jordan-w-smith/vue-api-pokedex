@@ -7,7 +7,6 @@
 
 <script>
 import {eventBus} from './main.js'
-import HelloWorld from './components/HelloWorld.vue'
 import PokemonList from './components/PokemonList.vue'
 import PokemonDetail from './components/PokemonDetail.vue'
 
@@ -20,12 +19,11 @@ export default {
     }
   },
   components: {
-    HelloWorld,
     "pokemon-list": PokemonList,
     "pokemon-detail": PokemonDetail
   },
   mounted() {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=500')
     .then(res => res.json())
     .then(pokemons => this.pokemons = pokemons)
 
