@@ -19,7 +19,7 @@ export default {
 
 <style lang="css" scoped>
  #pokemon-list {
-   width: 30%;
+   width: 25%;
    margin-left: auto;
    margin-right: auto;
    margin-top: 400px;

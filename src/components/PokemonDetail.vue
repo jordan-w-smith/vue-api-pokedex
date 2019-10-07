@@ -33,7 +33,7 @@ img {
 
 .attributes {
   width: 50%;
-  padding-left: 60px;
+  text-align: center;
   padding-top: 20px;
 }
 
